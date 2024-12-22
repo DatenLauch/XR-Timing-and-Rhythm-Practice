@@ -1,6 +1,5 @@
 export const state = {
     xrSession: null,
-    isReady: false,
     isActive: false
 }
 
@@ -12,11 +11,11 @@ let previousTime = 0;
 const arFeatures = {
     requiredFeatures: ['local-floor'],
     optionalFeatures: ['plane-detection', 'hit-test', 'anchors']
-};
+}
 const vrFeatures = {
     requiredFeatures: ['local-floor'],
     optionalFeatures: ['viewer']
-};
+}
 
 export async function initXR(sessionType, threeState, updateThreeFunc, renderThreeFunc) {
     if (sessionType === 'immersive-ar') {
@@ -33,7 +32,6 @@ export async function initXR(sessionType, threeState, updateThreeFunc, renderThr
     three.renderer.xr.enabled = true;
     await three.renderer.xr.setSession(state.xrSession);
     state.xrSession.requestAnimationFrame(updateAndRenderXR);
-    state.isReady = true;
     state.isActive = true;
 }
 

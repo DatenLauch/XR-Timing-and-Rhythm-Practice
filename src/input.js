@@ -3,7 +3,6 @@ import * as THREE from 'three';
 export const state = {
     mouse: new THREE.Vector2(),
     raycaster: new THREE.Raycaster(),
-    isReady: false,
     isActive: false
 }
 
@@ -16,7 +15,6 @@ export async function initInput(testButton, testCamera) {
     camera = testCamera;
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('click', onMouseClick);
-    state.isReady = true;
     state.isActive = true;
 }
 

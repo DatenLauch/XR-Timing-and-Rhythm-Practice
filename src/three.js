@@ -7,9 +7,8 @@ export const state = {
     directionalLight: null,
     ambientLight: null,
     cube: null,
-    isReady: false,
     isActive: false
-};
+}
 
 export async function initThree() {
     state.renderer = initRenderer();
@@ -38,7 +37,6 @@ export async function initThree() {
 
     window.addEventListener('resize', onWindowResize);
 
-    state.isReady = true;
     state.isActive = true;
 }
 

@@ -4,9 +4,8 @@ import { initInput, updateInput, state as inputState } from '/src/input';
 import { initXR, state as xrState } from '/src/XR.js';
 
 const state = {
-    isReady: false,
     isActive: false
-};
+}
 
 let previousTime = 0;
 
@@ -18,7 +17,6 @@ async function runApp() {
     if (navigator.xr) {
         document.body.append(await createXRButtons());
     }
-    state.isReady = true;
     state.isActive = true;
 }
 
@@ -61,7 +59,7 @@ async function createButton(buttonText, onClickHandler) {
 }
 
 function updateAndRenderThree(time) {
-    if (xrState.isReady) {
+    if (xrState.isActive) {
         return;
     }
     requestAnimationFrame(updateAndRenderThree);
@@ -74,7 +72,6 @@ function updateAndRenderThree(time) {
         updateInput(deltaTime);
     }
     if (threeState.isActive){
-
         updateThree(deltaTime);
     }
     renderThree();

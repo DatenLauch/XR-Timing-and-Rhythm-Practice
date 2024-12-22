@@ -4,8 +4,7 @@ import FontJSON from '/src/assets/fonts/Roboto-msdf.json';
 import FontImage from '/src/assets/fonts/Roboto-msdf.png';
 
 export const state = {
-    isReady: false,
-    isActive: false
+    isActive: false,
 }
 
 export let testButton = null;
@@ -14,7 +13,6 @@ export async function initMeshUI(scene) {
     testButton = createNewButton(1, 2);
     testButton.position.set(0, 3.5, -3);
     scene.add(testButton);
-    state.isReady = true;
     state.isActive = true;
 }
 
